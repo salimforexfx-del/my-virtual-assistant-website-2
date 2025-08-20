@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Services | Web Development & Digital Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #4a6cf7;
+            --primary-dark: #3a5be0;
+            --secondary: #6c757d;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+            --danger: #dc3545;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            background: #f9fafb;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #4a6cf7 0%, #3a5be0 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .service-card p {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .service-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Payment Section */
+        .payment-section {
+            padding: 80px 0;
+            background: #f9fafb;
+        }
+        
+        .payment-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .services-selection {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .payment-details {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-category {
+            margin-bottom: 30px;
+        }
+        
+        .service-category h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: var(--light);
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid #eaeaea;
+        }
+        
+        .service-item:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+        
+        .service-item.selected {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary-dark);
+        }
+        
+        .service-name {
+            font-weight: 500;
+        }
+        
+        .service-price-small {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .service-item.selected .service-price-small {
+            color: white;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: block;
+            width: 100%;
+        }
+        
+        button:hover {
+            background: var(--primary-dark);
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            text-align: center;
+            display: none;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .payment-summary {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .total {
+            font-weight: 600;
+            font-size: 18px;
+            border-top: 2px solid #eaeaea;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        
+        .payment-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .payment-option {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border: 2px solid #eaeaea;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-option.active {
+            border-color: var(--primary);
+            background: rgba(74, 108, 247, 0.05);
+        }
+        
+        .payment-option img {
+            height: 30px;
+            margin-bottom: 10px;
+        }
+        
+        .payment-form {
+            display: none;
+        }
+        
+        .payment-form.active {
+            display: block;
+        }
+        
+        .card-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .card-row .form-group {
+            flex: 1;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--light);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .author-details h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-details p {
+            color: var(--secondary);
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-column a:hover {
+            opacity: 1;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .payment-container {
+                flex-direction: column;
+            }
+            
+            .payment-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-rocket"></i> ProServices
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#payment">Payment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Professional Services for Your Business</h1>
+            <p>We provide top-quality web development, digital marketing, and consulting services to help your business grow</p>
+            <a href="#payment" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of professional services to meet your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Professional website design and development tailored to your business needs</p>
+                    <div class="service-price">From $299</div>
+                    <a href="#payment" class="btn">Select</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>SEO Optimization</h3>
+                    <p>Improve your search engine rankings and drive more traffic to your website</p>
+                    <div class="service-price">From $499</div>
+                    <a href="#payment" class="btn">Select</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <h3>Content Creation</h3>
+                    <p>Engaging content that resonates with your audience and boosts conversions</p>
+                    <div class="service-price">From $299/mo</div>
+                    <a href="#payment" class="btn">Select</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment-section" id="payment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Select & Pay for Services</h2>
+                <p>Choose a service and complete your payment securely</p>
+            </div>
+            <div class="payment-container">
+                <div class="services-selection">
+                    <h3>Select a Service</h3>
+                    
+                    <div class="service-category">
+                        <h3>Web Services</h3>
+                        <div class="service-item" data-name="Basic Website" data-price="299">
+                            <span class="service-name">Basic Website</span>
+                            <span class="service-price-small">$299</span>
+                        </div>
+                        <div class="service-item" data-name="E-commerce Site" data-price="799">
+                            <span class="service-name">E-commerce Site</span>
+                            <span class="service-price-small">$799</span>
+                        </div>
+                        <div class="service-item" data-name="Web App" data-price="1499">
+                            <span class="service-name">Web Application</span>
+                            <span class="service-price-small">$1,499</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-category">
+                        <h3>Digital Marketing</h3>
+                        <div class="service-item" data-name="SEO Package" data-price="499">
+                            <span class="service-name">SEO Package</span>
+                            <span class="service-price-small">$499</span>
+                        </div>
+                        <div class="service-item" data-name="Social Media Management" data-price="399">
+                            <span class="service-name">Social Media Management</span>
+                            <span class="service-price-small">$399/mo</span>
+                        </div>
+                        <div class="service-item" data-name="Content Creation" data-price="299">
+                            <span class="service-name">Content Creation</span>
+                            <span class="service-price-small">$299/mo</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-category">
+                        <h3>Consulting</h3>
+                        <div class="service-item" data-name="Business Strategy" data-price="199">
+                            <span class="service-name">Business Strategy</span>
+                            <span class="service-price-small">$199/hr</span>
+                        </div>
+                        <div class="service-item" data-name="Technical Consultation" data-price="149">
+                            <span class="service-name">Technical Consultation</span>
+                            <span class="service-price-small">$149/hr</span>
+                        </div>
+                        <div class="service-item" data-name="Project Analysis" data-price="249">
+                            <span class="service-name">Project Analysis</span>
+                            <span class="service-price-small">$249</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-details">
+                    <h3>Payment Details</h3>
+                    
+                    <div class="payment-summary">
+                        <h4>Order Summary</h4>
+                        <div class="summary-item">
+                            <span>Selected Service:</span>
+                            <span id="selected-service">None</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Price:</span>
+                            <span id="service-price">$0.00</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Total:</span>
+                            <span id="total-price">$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details (Optional)</label>
+                            <textarea id="message" name="message"></textarea>
+                        </div>
+                    </form>
+                    
+                    <div class="payment-options">
+                        <div class="payment-option active" data-method="paypal">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48cGF0aCBmaWxsPSIjMDA3MGJiIiBkPSJtMTExLjQgMjU2LjIgLS4xLTY0LjJoNTYuOGMxMS44IDAgMjIuNCA2LjIgMjguNCAxNi4ybDYyIDk4LjYgNjIuMS05OC42YzYtMTAgMTYuNi0xNi4yIDI4LjQtMTYuMmg1Ni42bC0uMSA2NC40YzAgMjMuOC01LjggNDUuNS0xNi4zIDYzLjUtMTAuMiAxNy42LTI1LjIgMzEuNC00NC4xIDQwLjUtMTguOSA5LTQxLjQgMTMuNi02Ni4zIDEzLjYtMjQuOSAwLTQ3LjQtNC42LTY2LjMtMTMuNi0xOC45LTkuMS0zMy45LTIyLjktNDQuMS00MC41LTEwLjUtMTgtMTYuMy0zOS43LTE2LjMtNjMuNXptMTIwLjEtOTYuM2MwLTI1LjYtMTktMzguNS01Ni42LTE5LTg1LjEtMTktNTYuNi0xOS04NS4xLTE5aC02NS4ydjI1Ni4yaDcxLjN2LTk1LjNoNDMuN2MyNC43IDAgNDUuNy04LjUgNjEuMS0yNS41IDE1LjMtMTYuOSAyMy00MC4yIDIzLTY5LjV6Ii8+PC9zdmc+" alt="PayPal">
+                            <div>PayPal</div>
+                        </div>
+                        <div class="payment-option" data-method="card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmY2YjI2IiBkPSJNNDU4LjYgMTQ1LjJjLTE1LjUtMTUuNS00MC44LTE1LjUtNTYuMyAwcy0xNS41IDQwLjggMCA1Ni4zIDE1LjUgMTUuNSA0MC44IDE1LjUgNTYuMyAwYzU3LjktNTcuOSA1Ny45LTE1MS44IDAtMjA5LjdzLTE1MS44LTU3LjktMjA5LjcgMC01Ny45IDE1MS44IDAgMjA5LjdjMTUuNSAxNS41IDE1LjUgNDAuOCAwIDU2LjNzLTQwLjggMTUuNS01Ni4zIDBDODcuOSAzODUuOSAyNS4xIDMyMy4xIDAgMjU2czI1LjEtMTI5LjkgNjcuNi0xNzIuQzExMC4yIDQxLjkgMTgxLjggMjUuMSAyNTYgMjUuMXMxNDUuOCAxNi44IDE4OC40IDU4LjNjNDIuNSA0MS41IDY3LjYgMTAzLjMgNjcuNiAxNzIuNi0uMSA2Ny4zLTI1LjIgMTI5LjEtNjcuNiAxNzAuNnoiLz48cGF0aCBmaWxsPSIjZGY0MDJlIiBkPSJNMjU2IDc3LjFjLTk4LjggMC0xNzguOSA4MC4xLTE3OC45IDE3ODkuczgwLjEgMTc4LjkgMTc4LjkgMTc4LjkgMTc4LjktODAuMSAxNzguOS0xNzguOVMzNTQuOCA3Ny4xIDI1NiA3Ny4xem0wIDI4OC40Yy02MC40IDAtMTA5LjQtNDktMTA5LjQtMTA5LjRzNDktMTA5LjQgMTA5LjQtMTA5LjQgMTA5LjQgNDkgMTA5LjQgMTA5LjQtNDkgMTA5LjQtMTA5LjQgMTA5LjR6Ii8+PHBhdGggZmlsbD0iI2RmNDAyZSIgZD0iTTI1NiAxMzEuMWMtNjguOSAwLTEyNC44IDU1LjktMTI0LjggMTI0LjhzNTUuOSAxMjQuOCAxMjQuOCAxMjQuOCAxMjQuOC01NS45IDEyNC44LTEyNC44UzMyNC45IDEzMS4xIDI1NiAxMzEuMXptMCAxODcuMmMtMzQuNSAwLTYyLjQtMjcuOS02Mi40LTYyLjRzMjcuOS02Mi40IDYyLjQtNjIuNCA2Mi40IDI3LjkgNjIuNCA2Mi40LTI3LjkgNjIuNC02Mi40IDYyLjR6Ii8+PC9zdmc+" alt="Credit Card">
+                            <div>Credit/Debit Card</div>
+                        </div>
+                    </div>
+                    
+                    <div id="paypal-form" class="payment-form active">
+                        <div class="form-group">
+                            <label for="paypal-email">PayPal Email</label>
+                            <input type="email" id="paypal-email" placeholder="your@email.com">
+                        </div>
+                        <button id="paypal-button">Pay Now with PayPal</button>
+                    </div>
+                    
+                    <div id="card-form" class="payment-form">
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="card-row">
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" placeholder="John Doe">
+                        </div>
+                        <button id="card-button">Pay Now</button>
+                    </div>
+                    
+                    <div id="successMessage" class="message success">
+                        Thank you! Your payment has been processed successfully.
+                    </div>
+                    
+                    <div id="errorMessage" class="message error">
+                        Sorry, there was an error processing your payment. Please try again.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Learn more about our company and our mission</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>We Help Businesses Succeed</h3>
+                    <p>With over 10 years of experience in the industry, we've helped hundreds of businesses improve their online presence and achieve their goals.</p>
+                    <p>Our team of experts is dedicated to providing top-quality services tailored to your specific needs. We believe in building long-term relationships with our clients based on trust and results.</p>
+                    <p>Whether you need a new website, digital marketing services, or professional consulting, we have the skills and expertise to help your business grow.</p>
+                </div>
+                <div class="about-image">
+                    <div style="background: linear-gradient(135deg, #4a6cf7 0%, #3a5be0 100%); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; padding: 40px;">
+                        <i class="fas fa-chart-line" style="font-size: 80px; margin-right: 20px;"></i>
+                        <div>Growing Businesses Since 2013</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>See what our clients have to say about our services</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "ProServices completely transformed our website. The new design is not only beautiful but also converts much better than our old site. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">JD</div>
+                        <div class="author-details">
+                            <h4>John Doe</h4>
+                            <p>CEO, Tech Solutions Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The SEO package we purchased has already doubled our organic traffic in just 3 months. The team is knowledgeable and responsive. Great value!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">SM</div>
+                        <div class="author-details">
+                            <h4>Sarah Miller</h4>
+                            <p>Marketing Director, Fashion Retail</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The business strategy consultation provided valuable insights that helped us pivot our business model. We're now seeing increased profitability."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">RW</div>
+                        <div class="author-details">
+                            <h4>Robert Williams</h4>
+                            <p>Founder, Startup Ventures</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ProServices</h3>
+                    <p>Providing top-quality web development, digital marketing, and consulting services to help your business grow.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">SEO Optimization</a></li>
+                        <li><a href="#">Content Creation</a></li>
+                        <li><a href="#">Social Media Management</a></li>
+                        <li><a href="#">Business Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@proservices.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ProServices. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Service selection
+        let selectedService = null;
+        
+        document.querySelectorAll('.service-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Remove selection from all items
+                document.querySelectorAll('.service-item').forEach(i => {
+                    i.classList.remove('selected');
+                });
+                
+                // Add selection to clicked item
+                this.classList.add('selected');
+                
+                // Store selected service
+                selectedService = {
+                    name: this.getAttribute('data-name'),
+                    price: this.getAttribute('data-price')
+                };
+                
+                // Update payment summary
+                document.getElementById('selected-service').textContent = selectedService.name;
+                document.getElementById('service-price').textContent = '$' + selectedService.price;
+                document.getElementById('total-price').textContent = '$' + selectedService.price;
+            });
+        });
+        
+        // Payment method selection
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.payment-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const method = this.getAttribute('data-method');
+                document.querySelectorAll('.payment-form').forEach(form => {
+                    form.classList.remove('active');
+                });
+                document.getElementById(method + '-form').classList.add('active');
+            });
+        });
+        
+        // Form submission and payment processing
+        document.getElementById('paypal-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            processPayment('PayPal');
+        });
+        
+        document.getElementById('card-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            processPayment('Credit Card');
+        });
+        
+        function processPayment(method) {
+            // Validate form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            if (!name || !email) {
+                alert('Please enter your name and email address');
+                return;
+            }
+            
+            if (!selectedService) {
+                alert('Please select a service first');
+                return;
+            }
+            
+            // Validate payment method specific fields
+            if (method === 'PayPal') {
+                const paypalEmail = document.getElementById('paypal-email').value;
+                if (!paypalEmail || !paypalEmail.includes('@')) {
+                    alert('Please enter a valid PayPal email');
+                    return;
+                }
+            } else if (method === 'Credit Card') {
+                const cardNumber = document.getElementById('card-number').value;
+                const expiry = document.getElementById('expiry').value;
+                const cvv = document.getElementById('cvv').value;
+                const cardName = document.getElementById('card-name').value;
+                
+                if (!cardNumber || cardNumber.replace(/\s/g, '').length !== 16) {
+                    alert('Please enter a valid 16-digit card number');
+                    return;
+                }
+                
+                if (!expiry || !expiry.includes('/')) {
+                    alert('Please enter a valid expiry date in MM/YY format');
+                    return;
+                }
+                
+                if (!cvv || cvv.length !== 3) {
+                    alert('Please enter a valid 3-digit CVV');
+                    return;
+                }
+                
+                if (!cardName) {
+                    alert('Please enter the name on the card');
+                    return;
+                }
+            }
+            
+            // Simulate successful payment (80% chance for demo)
+            const isSuccess = Math.random() > 0.2;
+            
+            if (isSuccess) {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+                
+                // In a real implementation, you would send the form data to your server
+                // which would then forward the email to salim.virtualassistant@gmail.com
+                console.log('Payment processed with ' + method);
+                console.log('Service: ' + selectedService.name);
+                console.log('Amount: $' + selectedService.price);
+                console.log('Customer: ' + name + ' (' + email + ')');
+                console.log('Email would be sent to salim.virtualassistant@gmail.com');
+                
+                // Reset the form
+                document.getElementById('contactForm').reset();
+                document.querySelectorAll('.service-item').forEach(i => {
+                    i.classList.remove('selected');
+                });
+                selectedService = null;
+                document.getElementById('selected-service').textContent = 'None';
+                document.getElementById('service-price').textContent = '$0.00';
+                document.getElementById('total-price').textContent = '$0.00';
+            } else {
+                document.getElementById('successMessage').style.display = 'none';
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+            
+            // Scroll to message
+            document.querySelector('.message').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .btn').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
