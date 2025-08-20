@@ -3,52 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Services | Web Development & Digital Marketing</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>ProServices | Web Development & Digital Marketing Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #93c5fd;
+            --secondary: #64748b;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --gray: #94a3b8;
+            --gray-light: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        :root {
-            --primary: #4a6cf7;
-            --primary-dark: #3a5be0;
-            --secondary: #6c757d;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --success: #28a745;
-            --danger: #dc3545;
-        }
-        
         body {
             font-family: 'Open Sans', sans-serif;
             color: var(--dark);
             line-height: 1.6;
-            background: #f9fafb;
+            background: var(--light);
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
+            line-height: 1.3;
         }
         
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #e99a0b;
         }
         
         /* Header & Navigation */
         header {
             background: white;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
         }
         
         .header-container {
@@ -59,55 +146,89 @@
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-text {
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 24px;
             color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
+            margin-left: 10px;
         }
         
-        .logo i {
-            margin-right: 10px;
-        }
-        
-        nav ul {
+        .nav-menu {
             display: flex;
             list-style: none;
         }
         
-        nav li {
+        .nav-item {
             margin-left: 30px;
+            position: relative;
         }
         
-        nav a {
+        .nav-link {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: var(--transition);
+            padding: 8px 0;
+            position: relative;
         }
         
-        nav a:hover {
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
             color: var(--primary);
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            margin-left: 30px;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #4a6cf7 0%, #3a5be0 100%);
+            background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 80px 0;
-            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
         }
         
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
         
         .hero p {
@@ -116,45 +237,61 @@
             opacity: 0.9;
         }
         
-        .btn {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
         
-        .btn:hover {
-            background: transparent;
-            color: white;
-            border-color: white;
+        .hero-image {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 45%;
+            z-index: 1;
+            opacity: 0.9;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 60px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .stat-text {
+            color: var(--secondary);
+            font-weight: 500;
         }
         
         /* Services Section */
         .services {
-            padding: 80px 0;
-            background: white;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: var(--secondary);
-            max-width: 600px;
-            margin: 0 auto;
+            background: var(--light);
         }
         
         .services-grid {
@@ -164,23 +301,32 @@
         }
         
         .service-card {
-            background: var(--light);
-            border-radius: 10px;
-            padding: 30px;
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px 30px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border-top: 4px solid transparent;
         }
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
+            border-top-color: var(--primary);
         }
         
         .service-icon {
-            font-size: 40px;
+            width: 70px;
+            height: 70px;
+            background: var(--primary-light);
             color: var(--primary);
-            margin-bottom: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 25px;
         }
         
         .service-card h3 {
@@ -190,20 +336,222 @@
         
         .service-card p {
             color: var(--secondary);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .service-price {
             font-size: 24px;
             font-weight: 700;
             color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            background: white;
+        }
+        
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background: var(--light);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .project-content p {
+            color: var(--secondary);
             margin-bottom: 20px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .project-tag {
+            background: var(--light);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Process Section */
+        .process {
+            background: var(--light);
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+            margin-top: 50px;
+        }
+        
+        .process-step {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            width: 250px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .process-step h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .process-step p {
+            color: var(--secondary);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 25px;
+            color: var(--dark);
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .testimonial-text:before {
+            content: """;
+            position: absolute;
+            left: 0;
+            top: -15px;
+            font-size: 60px;
+            color: var(--primary-light);
+            font-family: sans-serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 24px;
+        }
+        
+        .author-details h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-details p {
+            color: var(--secondary);
+            font-size: 14px;
         }
         
         /* Payment Section */
         .payment-section {
-            padding: 80px 0;
-            background: #f9fafb;
+            background: var(--light);
         }
         
         .payment-container {
@@ -217,8 +565,8 @@
             min-width: 300px;
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
         
         .payment-details {
@@ -226,8 +574,8 @@
             min-width: 300px;
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
         
         .service-category {
@@ -249,9 +597,9 @@
             margin-bottom: 10px;
             background: var(--light);
             border-radius: 8px;
-            transition: all 0.3s;
+            transition: var(--transition);
             cursor: pointer;
-            border: 1px solid #eaeaea;
+            border: 1px solid var(--gray-light);
         }
         
         .service-item:hover {
@@ -292,61 +640,22 @@
         input, textarea, select {
             width: 100%;
             padding: 14px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
+            border: 1px solid var(--gray-light);
+            border-radius: 8px;
             font-family: 'Open Sans', sans-serif;
             font-size: 16px;
-            transition: border-color 0.3s;
+            transition: var(--transition);
         }
         
         input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.1);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
         
         textarea {
             min-height: 120px;
             resize: vertical;
-        }
-        
-        button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 6px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.3s;
-            display: block;
-            width: 100%;
-        }
-        
-        button:hover {
-            background: var(--primary-dark);
-        }
-        
-        .message {
-            padding: 15px;
-            border-radius: 6px;
-            margin: 20px 0;
-            text-align: center;
-            display: none;
-        }
-        
-        .success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
         }
         
         .payment-summary {
@@ -365,7 +674,7 @@
         .total {
             font-weight: 600;
             font-size: 18px;
-            border-top: 2px solid #eaeaea;
+            border-top: 2px solid var(--gray-light);
             padding-top: 10px;
             margin-top: 10px;
         }
@@ -380,15 +689,15 @@
             flex: 1;
             text-align: center;
             padding: 15px;
-            border: 2px solid #eaeaea;
+            border: 2px solid var(--gray-light);
             border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
         
         .payment-option.active {
             border-color: var(--primary);
-            background: rgba(74, 108, 247, 0.05);
+            background: rgba(37, 99, 235, 0.05);
         }
         
         .payment-option img {
@@ -413,111 +722,109 @@
             flex: 1;
         }
         
-        /* About Section */
-        .about {
-            padding: 80px 0;
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            display: none;
+        }
+        
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+        
+        /* FAQ Section */
+        .faq {
             background: white;
         }
         
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background: var(--light);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
+        .faq-item {
             margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius);
             overflow: hidden;
-            margin-right: 15px;
-            background: var(--primary);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background: var(--light);
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            color: white;
+            cursor: pointer;
             font-weight: 600;
         }
         
-        .author-details h4 {
-            margin-bottom: 5px;
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
         }
         
-        .author-details p {
-            color: var(--secondary);
-            font-size: 14px;
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 300px;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+            opacity: 0.9;
         }
         
         /* Footer */
         footer {
             background: var(--dark);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 40px;
+            margin-bottom: 50px;
         }
         
         .footer-column h3 {
             font-size: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: white;
         }
         
         .footer-column p {
             opacity: 0.8;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            line-height: 1.8;
         }
         
         .footer-column ul {
@@ -525,18 +832,19 @@
         }
         
         .footer-column li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-column a {
             color: white;
             opacity: 0.8;
             text-decoration: none;
-            transition: opacity 0.3s;
+            transition: var(--transition);
         }
         
         .footer-column a:hover {
             opacity: 1;
+            color: var(--primary-light);
         }
         
         .social-links {
@@ -552,14 +860,15 @@
             height: 40px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            transition: background 0.3s;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
             background: var(--primary);
+            transform: translateY(-3px);
         }
         
-        .copyright {
+        .footer-bottom {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -568,31 +877,70 @@
         }
         
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-container {
+        @media (max-width: 992px) {
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+                margin: 0 auto;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
                 flex-direction: column;
+                background: white;
+                width: 100%;
+                height: calc(100vh - 80px);
+                padding: 40px 20px;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
             }
             
-            nav ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .nav-menu.active {
+                left: 0;
             }
             
-            nav li {
-                margin: 0 10px 10px;
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
             }
             
             .hero h1 {
                 font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
             }
             
             .hero p {
                 font-size: 18px;
             }
             
-            .about-content {
-                flex-direction: column;
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
             }
             
             .payment-container {
@@ -610,35 +958,77 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
-                <i class="fas fa-rocket"></i> ProServices
+                <i class="fas fa-rocket" style="color: var(--primary); font-size: 28px;"></i>
+                <span class="logo-text">ProServices</span>
             </a>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#payment">Payment</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#process" class="nav-link">Process</a></li>
+                <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+                <li class="nav-cta"><a href="#payment" class="btn">Get Started</a></li>
+            </ul>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Professional Services for Your Business</h1>
-            <p>We provide top-quality web development, digital marketing, and consulting services to help your business grow</p>
-            <a href="#payment" class="btn">Get Started</a>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Professional Digital Solutions for Your Business Growth</h1>
+                <p>We provide cutting-edge web development, digital marketing, and business consulting services to help your business thrive in the digital age.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn">Our Services</a>
+                    <a href="#projects" class="btn btn-outline">View Projects</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- This would be an image in a real implementation -->
+            <div style="width: 100%; height: 400px; background: rgba(255, 255, 255, 0.1); border-radius: 20px 0 0 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">
+                <i class="fas fa-laptop-code" style="font-size: 80px; margin-right: 20px;"></i>
+                <div>Digital Excellence</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">250+</div>
+                    <div class="stat-text">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-text">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-text">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-text">Team Members</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
+    <section class="services section" id="services">
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
-                <p>We offer a wide range of professional services to meet your business needs</p>
+                <p>We offer a comprehensive range of digital services to help your business succeed online</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -646,88 +1036,339 @@
                         <i class="fas fa-laptop-code"></i>
                     </div>
                     <h3>Web Development</h3>
-                    <p>Professional website design and development tailored to your business needs</p>
-                    <div class="service-price">From $299</div>
-                    <a href="#payment" class="btn">Select</a>
+                    <p>Custom websites and web applications built with the latest technologies for optimal performance and user experience.</p>
+                    <div class="service-price">From $499</div>
+                    <a href="#payment" class="btn">Get Started</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-search"></i>
                     </div>
                     <h3>SEO Optimization</h3>
-                    <p>Improve your search engine rankings and drive more traffic to your website</p>
-                    <div class="service-price">From $499</div>
-                    <a href="#payment" class="btn">Select</a>
+                    <p>Comprehensive SEO strategies to improve your search engine rankings and drive targeted traffic to your website.</p>
+                    <div class="service-price">From $299/mo</div>
+                    <a href="#payment" class="btn">Get Started</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Strategic digital marketing campaigns across multiple channels to increase brand awareness and generate leads.</p>
+                    <div class="service-price">From $499/mo</div>
+                    <a href="#payment" class="btn">Get Started</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-pencil-alt"></i>
                     </div>
                     <h3>Content Creation</h3>
-                    <p>Engaging content that resonates with your audience and boosts conversions</p>
-                    <div class="service-price">From $299/mo</div>
-                    <a href="#payment" class="btn">Select</a>
+                    <p>Engaging content that resonates with your audience and drives conversions, from blog posts to video content.</p>
+                    <div class="service-price">From $249/mo</div>
+                    <a href="#payment" class="btn">Get Started</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Complete e-commerce development including platform selection, design, and integration with payment systems.</p>
+                    <div class="service-price">From $999</div>
+                    <a href="#payment" class="btn">Get Started</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Business Consulting</h3>
+                    <p>Strategic guidance to help you make informed decisions about your digital transformation and growth strategies.</p>
+                    <div class="service-price">From $149/hr</div>
+                    <a href="#payment" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Projects</h2>
+                <p>Explore our portfolio of successful projects across various industries</p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="seo">SEO</button>
+                <button class="filter-btn" data-filter="marketing">Marketing</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <div>Modern Corporate Website</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>TechSolutions Inc.</h3>
+                        <p>A responsive corporate website with integrated blog and customer portal.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">WordPress</span>
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="ecommerce">
+                    <div class="project-image">
+                        <div>Fashion E-commerce Store</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>UrbanStyle Fashion</h3>
+                        <p>Complete e-commerce solution with inventory management and payment integration.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Shopify</span>
+                            <span class="project-tag">Liquid</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="seo">
+                    <div class="project-image">
+                        <div>SEO Campaign</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Organic Foods Market</h3>
+                        <p>Comprehensive SEO strategy that increased organic traffic by 215% in 6 months.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Keyword Research</span>
+                            <span class="project-tag">Content Strategy</span>
+                            <span class="project-tag">Technical SEO</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="marketing">
+                    <div class="project-image">
+                        <div>Social Media Campaign</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>FitLife Gym</h3>
+                        <p>Social media marketing campaign that increased membership sign-ups by 40%.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Facebook Ads</span>
+                            <span class="project-tag">Instagram</span>
+                            <span class="project-tag">Influencer Marketing</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <div>Web Application</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Project Management Tool</h3>
+                        <p>Custom web application for project tracking and team collaboration.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Case Study</a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="ecommerce">
+                    <div class="project-image">
+                        <div>B2B E-commerce Platform</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Industrial Supplies Co.</h3>
+                        <p>Custom B2B e-commerce platform with bulk ordering and account management.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Magento</span>
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">MySQL</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process section" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Process</h2>
+                <p>We follow a structured approach to ensure project success and client satisfaction</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>We begin by understanding your business goals, target audience, and project requirements.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Planning</h3>
+                    <p>We create a detailed project plan with timelines, milestones, and deliverables.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Design</h3>
+                    <p>Our designers create mockups and prototypes for your review and feedback.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Development</h3>
+                    <p>Our developers bring the design to life using the latest technologies and best practices.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Testing</h3>
+                    <p>We rigorously test the project to ensure quality, performance, and compatibility.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Launch</h3>
+                    <p>We deploy the project and provide training and ongoing support as needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Client Testimonials</h2>
+                <p>See what our clients have to say about working with us</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "ProServices completely transformed our online presence. Our new website not only looks amazing but has increased our lead generation by 65%. The team was professional, responsive, and delivered beyond our expectations."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">SM</div>
+                        <div class="author-details">
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Director, TechSolutions Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The SEO strategy developed by ProServices has dramatically increased our organic traffic and conversions. Their expertise and attention to detail have made them an invaluable partner for our business growth."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">MR</div>
+                        <div class="author-details">
+                            <h4>Michael Rodriguez</h4>
+                            <p>CEO, Organic Foods Market</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "We hired ProServices to develop our e-commerce platform, and the results have been outstanding. The site is user-friendly, fast, and has all the features we needed. Sales have increased by 80% since launch."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">ED</div>
+                        <div class="author-details">
+                            <h4>Emily Davis</h4>
+                            <p>Founder, UrbanStyle Fashion</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Payment Section -->
-    <section class="payment-section" id="payment">
+    <section class="payment-section section" id="payment">
         <div class="container">
             <div class="section-title">
-                <h2>Select & Pay for Services</h2>
-                <p>Choose a service and complete your payment securely</p>
+                <h2>Get Started</h2>
+                <p>Select a service and complete your payment securely</p>
             </div>
+            
             <div class="payment-container">
                 <div class="services-selection">
                     <h3>Select a Service</h3>
                     
                     <div class="service-category">
                         <h3>Web Services</h3>
-                        <div class="service-item" data-name="Basic Website" data-price="299">
-                            <span class="service-name">Basic Website</span>
-                            <span class="service-price-small">$299</span>
+                        <div class="service-item" data-name="Basic Website" data-price="499">
+                            <span class="service-name">Basic Website (5 pages)</span>
+                            <span class="service-price-small">$499</span>
                         </div>
-                        <div class="service-item" data-name="E-commerce Site" data-price="799">
-                            <span class="service-name">E-commerce Site</span>
-                            <span class="service-price-small">$799</span>
+                        <div class="service-item" data-name="Business Website" data-price="899">
+                            <span class="service-name">Business Website (10 pages)</span>
+                            <span class="service-price-small">$899</span>
                         </div>
-                        <div class="service-item" data-name="Web App" data-price="1499">
-                            <span class="service-name">Web Application</span>
+                        <div class="service-item" data-name="E-commerce Site" data-price="1499">
+                            <span class="service-name">E-commerce Store</span>
                             <span class="service-price-small">$1,499</span>
+                        </div>
+                        <div class="service-item" data-name="Web Application" data-price="2499">
+                            <span class="service-name">Custom Web Application</span>
+                            <span class="service-price-small">$2,499</span>
                         </div>
                     </div>
                     
                     <div class="service-category">
                         <h3>Digital Marketing</h3>
-                        <div class="service-item" data-name="SEO Package" data-price="499">
-                            <span class="service-name">SEO Package</span>
-                            <span class="service-price-small">$499</span>
-                        </div>
-                        <div class="service-item" data-name="Social Media Management" data-price="399">
-                            <span class="service-name">Social Media Management</span>
-                            <span class="service-price-small">$399/mo</span>
-                        </div>
-                        <div class="service-item" data-name="Content Creation" data-price="299">
-                            <span class="service-name">Content Creation</span>
+                        <div class="service-item" data-name="SEO Starter" data-price="299">
+                            <span class="service-name">SEO Starter Package</span>
                             <span class="service-price-small">$299/mo</span>
+                        </div>
+                        <div class="service-item" data-name="SEO Professional" data-price="599">
+                            <span class="service-name">SEO Professional Package</span>
+                            <span class="service-price-small">$599/mo</span>
+                        </div>
+                        <div class="service-item" data-name="Social Media Management" data-price="499">
+                            <span class="service-name">Social Media Management</span>
+                            <span class="service-price-small">$499/mo</span>
+                        </div>
+                        <div class="service-item" data-name="Content Marketing" data-price="399">
+                            <span class="service-name">Content Marketing</span>
+                            <span class="service-price-small">$399/mo</span>
                         </div>
                     </div>
                     
                     <div class="service-category">
                         <h3>Consulting</h3>
                         <div class="service-item" data-name="Business Strategy" data-price="199">
-                            <span class="service-name">Business Strategy</span>
+                            <span class="service-name">Business Strategy Session</span>
                             <span class="service-price-small">$199/hr</span>
                         </div>
                         <div class="service-item" data-name="Technical Consultation" data-price="149">
                             <span class="service-name">Technical Consultation</span>
                             <span class="service-price-small">$149/hr</span>
                         </div>
-                        <div class="service-item" data-name="Project Analysis" data-price="249">
-                            <span class="service-name">Project Analysis</span>
-                            <span class="service-price-small">$249</span>
+                        <div class="service-item" data-name="Digital Audit" data-price="499">
+                            <span class="service-name">Digital Marketing Audit</span>
+                            <span class="service-price-small">$499</span>
                         </div>
                     </div>
                 </div>
@@ -763,18 +1404,23 @@
                         </div>
                         
                         <div class="form-group">
+                            <label for="company">Company Name (Optional)</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="message">Project Details (Optional)</label>
-                            <textarea id="message" name="message"></textarea>
+                            <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
                         </div>
                     </form>
                     
                     <div class="payment-options">
                         <div class="payment-option active" data-method="paypal">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48cGF0aCBmaWxsPSIjMDA3MGJiIiBkPSJtMTExLjQgMjU2LjIgLS4xLTY0LjJoNTYuOGMxMS44IDAgMjIuNCA2LjIgMjguNCAxNi4ybDYyIDk4LjYgNjIuMS05OC42YzYtMTAgMTYuNi0xNi4yIDI4LjQtMTYuMmg1Ni42bC0uMSA2NC40YzAgMjMuOC01LjggNDUuNS0xNi4zIDYzLjUtMTAuMiAxNy42LTI1LjIgMzEuNC00NC4xIDQwLjUtMTguOSA5LTQxLjQgMTMuNi02Ni4zIDEzLjYtMjQuOSAwLTQ3LjQtNC42LTY2LjMtMTMuNi0xOC45LTkuMS0zMy45LTIyLjktNDQuMS00MC41LTEwLjUtMTgtMTYuMy0zOS43LTE2LjMtNjMuNXptMTIwLjEtOTYuM2MwLTI1LjYtMTktMzguNS01Ni42LTE5LTg1LjEtMTktNTYuNi0xOS04NS4xLTE5aC02NS4ydjI1Ni4yaDcxLjN2LTk1LjNoNDMuN2MyNC43IDAgNDUuNy04LjUgNjEuMS0yNS41IDE1LjMtMTYuOSAyMy00MC4yIDIzLTY5LjV6Ii8+PC9zdmc+" alt="PayPal">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzODQgNTEyIj48cGF0aCBmaWxsPSIjMDA3MGJiIiBkPSJtMTExLjQgMjU2LjIgLS4xLTY0LjJoNTYuOGMxMS44IDAgMjIuNCA2LjIgMjguNCAxNi4ybDYyIDk4LjYgNjIuMS05OC42YzYtMTAgMTYuNi0xNi4yIDI4LjQtMTYuMmg1Ni42bC0uMSA2NC40YzAgMjMuOC01LjggNDUuNS0xNi4zIDYzLjUtMTAuMiAxNy42LTI1LjIgMzEuNC00NC4xIDQwLjUtMTguOSA5LTQxLjQgMTMuNi02Ni4zIDEzLjYtMjQuOSAwLTQ3LjQtNC42LTY2LjMtMTMuNi0xOC45LTkuMS0zMy45LTIyLjktNDQuMS00MC41LTEwLjUtMTgtMTYuMy0zOS43LTE2LjMtNjMuNXptMTIwLjEtOTYuM2MwLTI1LjYtMTktMzguNS01Ni42LTE5LTg1LjEtMTktNTYuNi0xOS04NS4xLTE5aC02NS4ydjI1Ni4yaDcxLjN2LTk1LjNoNDMuN2MyNC3IDAgNDUuNy04LjUgNjEuMS0yNS41IDE1LjMtMTYuOSAyMy00MC4yIDItNjkuNXoiLz48L3N2Zw==" alt="PayPal">
                             <div>PayPal</div>
                         </div>
                         <div class="payment-option" data-method="card">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmY2YjI2IiBkPSJNNDU4LjYgMTQ1LjJjLTE1LjUtMTUuNS00MC44LTE1LjUtNTYuMyAwcy0xNS41IDQwLjggMCA1Ni4zIDE1LjUgMTUuNSA0MC44IDE1LjUgNTYuMyAwYzU3LjktNTcuOSA1Ny45LTE1MS44IDAtMjA5LjdzLTE1MS44LTU3LjktMjA5LjcgMC01Ny45IDE1MS44IDAgMjA5LjdjMTUuNSAxNS41IDE1LjUgNDAuOCAwIDU2LjNzLTQwLjggMTUuNS01Ni4zIDBDODcuOSAzODUuOSAyNS4xIDMyMy4xIDAgMjU2czI1LjEtMTI5LjkgNjcuNi0xNzIuQzExMC4yIDQxLjkgMTgxLjggMjUuMSAyNTYgMjUuMXMxNDUuOCAxNi44IDE4OC40IDU4LjNjNDIuNSA0MS41IDY3LjYgMTAzLjMgNjcuNiAxNzIuNi0uMSA2Ny4zLTI1LjIgMTI5LjEtNjcuNiAxNzAuNnoiLz48cGF0aCBmaWxsPSIjZGY0MDJlIiBkPSJNMjU2IDc3LjFjLTk4LjggMC0xNzguOSA4MC4xLTE3OC45IDE3ODkuczgwLjEgMTc4LjkgMTc4LjkgMTc4LjkgMTc4LjktODAuMSAxNzguOS0xNzguOVMzNTQuOCA3Ny4xIDI1NiA3Ny4xem0wIDI4OC40Yy02MC40IDAtMTA5LjQtNDktMTA5LjQtMTA5LjRzNDktMTA5LjQgMTA5LjQtMTA5LjQgMTA5LjQgNDkgMTA5LjQgMTA5LjQtNDkgMTA5LjQtMTA5LjQgMTA5LjR6Ii8+PHBhdGggZmlsbD0iI2RmNDAyZSIgZD0iTTI1NiAxMzEuMWMtNjguOSAwLTEyNC44IDU1LjktMTI0LjggMTI0LjhzNTUuOSAxMjQuOCAxMjQuOCAxMjQuOCAxMjQuOC01NS45IDEyNC44LTEyNC44UzMyNC45IDEzMS4xIDI1NiAxMzEuMXptMCAxODcuMmMtMzQuNSAwLTYyLjQtMjcuOS02Mi40LTYyLjRzMjcuOS02Mi40IDYyLjQtNjIuNCA2Mi40IDI3LjkgNjIuNCA2Mi40LTI3LjkgNjIuNC02Mi40IDYyLjR6Ii8+PC9zdmc+" alt="Credit Card">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmY2YjI2IiBkPSJNNDU4LjYgMTQ1LjJjLTE1LjUtMTUuNS00MC44LTE1LjUtNTYuMyAwcy0xNS41IDQwLjggMCA1Ni4zIDE1LjUgMTUuNSA0MC44IDE1LjUgNTYuMyAwYzU3LjktNTcuOSA1Ny45LTE1MS44IDAtMjA5LjdzLTE1MS44LTU3LjktMjA5LjcgMC01Ny45IDE1MS44IDAgMjA5LjdjMTUuNSAxNS41IDE1LjUgNDAuOCAwIDU2LjNzLTQwLjggMTUuNS01Ni4zIDBDODcuOSAzODUuOSAyNS4xIDMyMy4xIDAgMjU2czI1LjEtMTI5LjkgNjcuNi0xNzIuQzExMC4yIDQxLjkgMTgxLjggMjUuMSAyNTYgMjUuMXMxNDUuOCAxNi44IDE4OC40IDU4LjNjNDIuNSA0MS41IDY3LjYgMTAzLjMgNjcuNiAxNzIuNi0uMSA2cy4zLTI1LjIgMTI5LjEtNjcuNiAxNzAuNnoiLz48cGF0aCBmaWxsPSIjZGY0MDJlIiBkPSJNMjU2IDc3LjFjLTk4LjggMC0xNzguOSA4MC4xLTE3OC45IDE3OC45czgwLjEgMTc4LjkgMTc4LjkgMTc4LjkgMTc4LjktODAuMSAxNzguOS0xNzguOVMzNTQuOCA3Ny4xIDI1NiA3Ny4xem0wIDI4OC40Yy02MC40IDAtMTA5LjQtNDktMTA5LjQtMTA5LjRzNDktMTA5LjQgMTA5LjQtMTA5LjQgMTA5LjQgNDkgMTA5LjQgMTA5LjQtNDkgMTA5LjQtMTA5LjQgMTA5LjR6Ii8+PHBhdGggZmlsbD0iI2RmNDAyZSIgZD0iTTI1NiAxMzEuMWMtNjguOSAwLTEyNC44IDU1LjktMTI0LjggMTI0LjhzNTUuOSAxMjQuOCAxMjQuOCAxMjQuOCAxMjQuOC01NS45IDEyNC44LTEyNC44UzMyNC45IDEzMS4xIDI1NiAxMzEuMXptMCAxODcuMmMtMzQuNSAwLTYyLjQtMjcuOS02Mi40LTYyLjRzMjcuOS02Mi40IDYyLjQtNjIuNCA2Mi40IDI3LjkgNjIuNCA2Mi40LTI3LjkgNjIuNC02MiLjQgNjIuNHoiLz48L3N2Zw==" alt="Credit Card">
                             <div>Credit/Debit Card</div>
                         </div>
                     </div>
@@ -784,7 +1430,7 @@
                             <label for="paypal-email">PayPal Email</label>
                             <input type="email" id="paypal-email" placeholder="your@email.com">
                         </div>
-                        <button id="paypal-button">Pay Now with PayPal</button>
+                        <button id="paypal-button" class="btn">Pay Now with PayPal</button>
                     </div>
                     
                     <div id="card-form" class="payment-form">
@@ -806,100 +1452,99 @@
                             <label for="card-name">Name on Card</label>
                             <input type="text" id="card-name" placeholder="John Doe">
                         </div>
-                        <button id="card-button">Pay Now</button>
+                        <button id="card-button" class="btn">Pay Now</button>
                     </div>
                     
                     <div id="successMessage" class="message success">
-                        Thank you! Your payment has been processed successfully.
+                        <i class="fas fa-check-circle"></i> Thank you! Your payment has been processed successfully. We'll be in touch within 24 hours.
                     </div>
                     
                     <div id="errorMessage" class="message error">
-                        Sorry, there was an error processing your payment. Please try again.
+                        <i class="fas fa-exclamation-circle"></i> Sorry, there was an error processing your payment. Please try again.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
+    <!-- FAQ Section -->
+    <section class="faq section" id="faq">
         <div class="container">
             <div class="section-title">
-                <h2>About Us</h2>
-                <p>Learn more about our company and our mission</p>
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our services and process</p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>We Help Businesses Succeed</h3>
-                    <p>With over 10 years of experience in the industry, we've helped hundreds of businesses improve their online presence and achieve their goals.</p>
-                    <p>Our team of experts is dedicated to providing top-quality services tailored to your specific needs. We believe in building long-term relationships with our clients based on trust and results.</p>
-                    <p>Whether you need a new website, digital marketing services, or professional consulting, we have the skills and expertise to help your business grow.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does a typical web project take?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        The timeline for web projects varies based on complexity. A basic website typically takes 2-3 weeks, while e-commerce sites and web applications can take 4-8 weeks or more. We provide a detailed timeline during the planning phase.
+                    </div>
                 </div>
-                <div class="about-image">
-                    <div style="background: linear-gradient(135deg, #4a6cf7 0%, #3a5be0 100%); height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; padding: 40px;">
-                        <i class="fas fa-chart-line" style="font-size: 80px; margin-right: 20px;"></i>
-                        <div>Growing Businesses Since 2013</div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you offer ongoing support after project completion?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, we offer various support packages to meet your needs. These include technical support, content updates, security monitoring, and performance optimization. We'll discuss options with you before project completion.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can you work with our existing design or branding?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely. We can incorporate your existing branding materials, color schemes, and design elements into your new website or digital strategy. If you need design assistance, our team can help refresh or create new branding elements.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What payment methods do you accept?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We accept all major credit cards, PayPal, and bank transfers. For larger projects, we typically require a 50% deposit with the remainder due upon completion. Monthly marketing services are billed monthly.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you provide hosting services?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We offer reliable hosting solutions optimized for performance and security. Alternatively, we can help you set up hosting with a provider of your choice. Our team will ensure your site is properly configured regardless of where it's hosted.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
+    <!-- CTA Section -->
+    <section class="cta">
         <div class="container">
-            <div class="section-title">
-                <h2>Client Testimonials</h2>
-                <p>See what our clients have to say about our services</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "ProServices completely transformed our website. The new design is not only beautiful but also converts much better than our old site. Highly recommended!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">JD</div>
-                        <div class="author-details">
-                            <h4>John Doe</h4>
-                            <p>CEO, Tech Solutions Inc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "The SEO package we purchased has already doubled our organic traffic in just 3 months. The team is knowledgeable and responsive. Great value!"
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">SM</div>
-                        <div class="author-details">
-                            <h4>Sarah Miller</h4>
-                            <p>Marketing Director, Fashion Retail</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-text">
-                        "The business strategy consultation provided valuable insights that helped us pivot our business model. We're now seeing increased profitability."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">RW</div>
-                        <div class="author-details">
-                            <h4>Robert Williams</h4>
-                            <p>Founder, Startup Ventures</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Contact us today for a free consultation and let's discuss how we can help you achieve your goals</p>
+            <a href="#payment" class="btn btn-accent">Get Started Now</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>ProServices</h3>
-                    <p>Providing top-quality web development, digital marketing, and consulting services to help your business grow.</p>
+                    <p>Providing top-quality digital solutions to help businesses thrive in the digital age. We specialize in web development, digital marketing, and business consulting.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -907,32 +1552,57 @@
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
+                
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul>
                         <li><a href="#">Web Development</a></li>
+                        <li><a href="#">E-commerce Solutions</a></li>
                         <li><a href="#">SEO Optimization</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
                         <li><a href="#">Content Creation</a></li>
-                        <li><a href="#">Social Media Management</a></li>
                         <li><a href="#">Business Consulting</a></li>
                     </ul>
                 </div>
+                
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
                 <div class="footer-column">
                     <h3>Contact Us</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Ave, Suite 100, San Francisco, CA 94107</li>
                         <li><i class="fas fa-phone"></i> (555) 123-4567</li>
                         <li><i class="fas fa-envelope"></i> info@proservices.com</li>
                     </ul>
                 </div>
             </div>
-            <div class="copyright">
+            
+            <div class="footer-bottom">
                 <p>&copy; 2023 ProServices. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileToggle.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
         // Service selection
         let selectedService = null;
         
@@ -1069,13 +1739,55 @@
         }
         
         // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a, .btn').forEach(link => {
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', function(e) {
-                if (this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
+            });
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                const icon = question.querySelector('i');
+                icon.className = item.classList.contains('active') ? 
+                    'fas fa-chevron-up' : 'fas fa-chevron-down';
+            });
+        });
+        
+        // Project Filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                button.classList.add('active');
+                
+                // Filter projects
+                const filter = button.getAttribute('data-filter');
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
     </script>
